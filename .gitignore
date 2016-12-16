@@ -5,6 +5,13 @@ bin/Windows
 bin/Linux
 bin/ff*
 
+src/*
+!src/README.txt
+tmp/*
+!tmp/README.txt
+out/*
+!out/README.txt
+
 # Created by https://www.gitignore.io/api/osx
 
 ### OSX ###
