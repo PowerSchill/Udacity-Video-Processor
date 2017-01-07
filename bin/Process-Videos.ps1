@@ -71,6 +71,11 @@ process {
                 $Season = $Matches['Season']
                 $Episode = $Matches['Episode']
             }
+            elseif ($SectionName -match '^L(?<Episode>\d*)') {
+                $Season = 1
+                $Episode = $Matches['Episode']
+            }
+
 
             $Metadata = ";FFMETADATA1`n"
             $Metadata += "title=$SectionName`n"
