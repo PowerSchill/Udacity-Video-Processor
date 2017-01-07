@@ -138,8 +138,8 @@ process {
             }
 
            # Populate MetaData
-
-           Set-Content -Path "$TempFolder/$CourseName/$SectionName.ini" -Value $Metadata
+           $MetadataFileName = "$TempFolder/$CourseName/$($SectionName -replace ':','').ini"
+           Set-Content -Path $MetadataFileName -Value $Metadata
 
             # Concatentate files
             $FileList=""
@@ -168,7 +168,7 @@ process {
                 FilePath = "$FFMPEG"
                 ArgumentList = @(
                     "-i `"$TempFolder/$CourseName/$SectionName.mp4`"",
-                    "-i `"$TempFolder/$CourseName/$SectionName.ini`"",
+                    "-i `"$MetadataFileName`"",
                     "-map_metadata 1",
                     "-codec copy `"$OutputFolder/$CourseName/$SectionName.mp4`""
                 )
